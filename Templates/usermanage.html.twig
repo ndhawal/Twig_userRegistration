@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <h2>List Of Datas</h2>
+
+    <table>
+        <tr>
+            <th>SNo</th>
+            <th>NAME</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Company</th>
+            <th>Phonenumber</th>
+            <th>Operation</th>
+        </tr>
+         {% for user in user_list %}
+         <tr>
+    <td>  {{user.id}} </td>
+    <td>{{user.user_name}}</td>
+    <td>{{user.user_email}}</td>
+    <td>{{user.user_password}}</td>
+    <td>{{user.user_company}}</td>
+    <td>{{user.user_phoneno}}</td>
+    <td>
+    <button id="button1"><a href="edit.php?editid={{user.id}}">Edit</a></button>
+             <button id ="button2"><a href="delete.php?deleteid={{user.id}} 
+                    ">Delete</a></button>
+        </td>
+ 
+  </tr> 
+     {% endfor %}
+
+
+   </table>
+    <div class='page'>
+             {% for i in range(1,page) %}
+            <a  href='usermanage.php?page= {{i}}' ><button> {{i}}</button>  </a>
+            {% endfor %}
+            </div>
+   
+</body>
+
+</html>

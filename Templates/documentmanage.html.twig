@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <label class="custom-upload">
+    <form id="Docname" action="" method="post" enctype="multipart/form-data">
+      <label> EnterDocument Name</label><input class="text1" type="text" 
+      name="text" placeholder="Enter document name"><br>
+      Select documents to upload:
+      <button class="btn1">
+        <input class="text2" type="file" name="fileToUpload" id="fileToUpload">
+        <input class="text2" type="submit" value="Upload Documents"
+         name="submit"></button>
+
+    </form>
+  </label>
+
+  <h2>List Of Documents</h2>
+
+  <table>
+  
+    <tr>
+      <th>SNo</th>
+      <th>Document Detail</th>
+      <th>View Document</th>
+    </tr>
+       {% for user in doc_list %}
+      <tr>
+    <td>
+    {{ user.id }}  
+    <td>   {{ user.doc_name }}  </td>
+    <td><a href='uploads/{{ user.doc_url }}' >View Attachment</a></td>
+
+
+  </tr> 
+   {% endfor %} </td>
+   </table>
+<div class='page'>
+ {% for i in range(1,page) %}
+    <a  href='documentmanage.php?page= {{i}}' ><button> {{i}}</button>  </a> 
+      {% endfor %}
+    </div>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/
+  jquery.validate.min.js"></script>
+    <script src="js/jqueryvalidation.js"></script>
+ </body>
+
+</html>
