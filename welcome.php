@@ -30,5 +30,5 @@ if ($result == true) {
 require 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader);
-echo $twig->render('welcome.html.twig',['name'=>$_SESSION['user_name']]);
+echo $twig->render('welcome.html.twig', ['name'=>$_SESSION['user_name']]);
 ?>

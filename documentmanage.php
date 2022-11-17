@@ -85,7 +85,7 @@ $rar=[];
 if ($result) {
     $i = 1;
     while ($row = mysqli_fetch_assoc($result)) {
-        array_push($rar,$row);
+        array_push($rar, $row);
 
     }
    
@@ -93,5 +93,7 @@ if ($result) {
 require 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader);
-echo $twig->render('documentmanage.html.twig',['doc_list'=>$rar,'page'=>$total_pages]); 
+echo $twig->render(
+    'documentmanage.html.twig', ['doc_list'=>$rar,'page'=>$total_pages]
+); 
 ?>

@@ -46,6 +46,8 @@ if (isset($_POST['submit'])) {
 require 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('Templates');
 $twig = new \Twig\Environment($loader);
-echo $twig->render('edit.html.twig',['name'=>$name,'email'=>$email,
-'pass'=>$pass,'company'=>$company,'phno'=>$phno]);
+echo $twig->render(
+    'edit.html.twig', ['name'=>$name,'email'=>$email,
+    'pass'=>$pass,'company'=>$company,'phno'=>$phno]
+);
 ?>
