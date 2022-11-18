@@ -1,10 +1,11 @@
 <?php
+
 /**
  * * MyClass Class Doc Comment
  * php version 7
- * 
- * @var mysqli $conn 
- * 
+ *
+ * @var mysqli $conn
+ *
  * @category Class
  * @package  MyPackage
  * @author   Niraj <nkrneerazz@gmail.com>
@@ -17,7 +18,6 @@ $password = "";
 $database = "userregistration";
 $conn = mysqli_connect($server, $username, $password, $database);
 if ($conn) {
-
 } else {
     die("Error" . mysqli_connect_error());
 }

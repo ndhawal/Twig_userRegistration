@@ -1,10 +1,11 @@
 <?php
+
 /**
  * * MyClass Class Doc Comment
  * php version 7
- * 
- * @var mysqli $conn 
- * 
+ *
+ * @var mysqli $conn
+ *
  * @category Class
  * @package  MyPackage
  * @author   Niraj <nkrneerazz@gmail.com>
@@ -17,16 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $pass = $_POST["pass"];
         //to check email and password
-        $sql="select * from users where user_email='$email' 
+        $sql = "select * from users where user_email='$email' 
         AND user_password='$pass'";
-        $result=mysqli_query($conn, $sql);
-        $num=mysqli_num_rows($result);
-        if ($num==1) {
+        $result = mysqli_query($conn, $sql);
+        $num = mysqli_num_rows($result);
+        if ($num == 1) {
             session_start();
-            $_SESSION['email']= $email;
+            $_SESSION['email'] = $email;
             header("location:welcome.php");
         } else {
-            echo "<font color='darkred'>".  "Invalid credentials"." </font>";
+            echo "<font color='darkred'>" .  "Invalid credentials" . " </font>";
         }
     }
 }
@@ -34,4 +35,3 @@ require 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader);
 echo $twig->render('login.html.twig');
-?>

@@ -1,10 +1,11 @@
 <?php
+
 /**
  * * MyClass Class Doc Comment
  * php version 7
- * 
- * @var mysqli $conn 
- * 
+ *
+ * @var mysqli $conn
+ *
  * @category Class
  * @package  MyPackage
  * @author   Niraj <nkrneerazz@gmail.com>

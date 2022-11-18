@@ -1,10 +1,11 @@
 <?php
+
 /**
  * * MyClass Class Doc Comment
  * php version 7
- * 
- * @var mysqli $conn 
- * 
+ *
+ * @var mysqli $conn
+ *
  * @category Class
  * @package  MyPackage
  * @author   Niraj <nkrneerazz@gmail.com>
@@ -50,9 +51,11 @@ if (isset($_POST['submit'])) {
                 echo " <p class='msg'>Sorry, your file was not uploaded.</p>";
                 // if everything is ok, try to upload file
             } else {
-                if (move_uploaded_file(
-                    $_FILES["fileToUpload"]["tmp_name"], $target_file
-                )
+                if (
+                    move_uploaded_file(
+                        $_FILES["fileToUpload"]["tmp_name"],
+                        $target_file
+                    )
                 ) {
                     $sql = "INSERT INTO `document` (`doc_name`, `doc_url`)
     VALUES ('$name', '$target_name')";
@@ -67,7 +70,7 @@ if (isset($_POST['submit'])) {
             }
         }
     }
-}  
+}
 $sql = "SELECT * FROM document ";
 $result = mysqli_query($conn, $sql);
 $total_records = mysqli_num_rows($result);
@@ -81,19 +84,17 @@ if (isset($_GET["page"])) {
 $start_from = ($page - 1) * $num_per_page;
 $sql = "SELECT * FROM document limit $start_from, $num_per_page ";
 $result = mysqli_query($conn, $sql);
-$rar=[];
+$rar = [];
 if ($result) {
     $i = 1;
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($rar, $row);
-
     }
-   
 }
 require 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader);
 echo $twig->render(
-    'documentmanage.html.twig', ['doc_list'=>$rar,'page'=>$total_pages]
-); 
-?>
+    'documentmanage.html.twig',
+    ['doc_list' => $rar,'page' => $total_pages]
+);

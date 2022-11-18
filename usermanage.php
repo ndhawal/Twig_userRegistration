@@ -1,10 +1,11 @@
 <?php
+
 /**
  * * MyClass Class Doc Comment
  * php version 7
- * 
- * @var mysqli $conn 
- * 
+ *
+ * @var mysqli $conn
+ *
  * @category Class
  * @package  MyPackage
  * @author   Niraj <nkrneerazz@gmail.com>
@@ -28,12 +29,11 @@ if (isset($_SESSION['update'])) {
     $update = $_SESSION['update'];
     echo "<p class='msg'>$update</p>";
     unset($_SESSION['update']);
-
 }
         $start_from = ($page - 1) * $num_per_page;
         $sql = "SELECT * FROM users limit $start_from, $num_per_page ";
         $result = mysqli_query($conn, $sql);
-        $rar=[];
+        $rar = [];
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($rar, $row);
@@ -43,6 +43,6 @@ require 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader);
 echo $twig->render(
-    'usermanage.html.twig', ['user_list'=>$rar,'page'=>$total_pages]
-);       
-?>
+    'usermanage.html.twig',
+    ['user_list' => $rar,'page' => $total_pages]
+);

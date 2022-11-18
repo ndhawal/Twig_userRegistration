@@ -1,10 +1,11 @@
 <?php
+
 /**
  * * MyClass Class Doc Comment
  * php version 7
- * 
- * @var mysqli $conn 
- * 
+ *
+ * @var mysqli $conn
+ *
  * @category Class
  * @package  MyPackage
  * @author   Niraj <nkrneerazz@gmail.com>
@@ -47,7 +48,7 @@ require 'vendor/autoload.php';
 $loader = new \Twig\Loader\FilesystemLoader('Templates');
 $twig = new \Twig\Environment($loader);
 echo $twig->render(
-    'edit.html.twig', ['name'=>$name,'email'=>$email,
-    'pass'=>$pass,'company'=>$company,'phno'=>$phno]
+    'edit.html.twig',
+    ['name' => $name,'email' => $email,
+    'pass' => $pass,'company' => $company,'phno' => $phno]
 );
-?>
